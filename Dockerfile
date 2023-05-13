@@ -1,13 +1,14 @@
-FROM node:16-alpine
-
-# Create app directory
-WORKDIR /app
+FROM node:alpine
 
 RUN npm i -g laravel-echo-server
 
-# Bundle app source
+WORKDIR /app
+
 COPY . .
+
+COPY script.sh /app/script.sh
+RUN chmod +x /app/script.sh
 
 EXPOSE 6001
 
-CMD [ "laravel-echo-server", "start" ]
+CMD ["/app/script.sh"]
