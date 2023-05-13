@@ -3,7 +3,7 @@ FROM node:16-alpine
 # Create app directory
 WORKDIR /app
 
-npm i -g laravel-echo-server
+RUN npm i -g laravel-echo-server
 
 # Bundle app source
 COPY . .
